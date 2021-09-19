@@ -5,6 +5,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import DataProvider from './redux/store'
+import axios from 'axios';
+axios.defaults.baseURL = 'https://flybuy-ecom-api.herokuapp.com'
 ReactDOM.render(
   <React.Fragment> 
     <DataProvider>
