@@ -1,0 +1,13 @@
+
+.login_img{
+    object-fit: cover; 
+    object-position: left;
+}
+
+.active_page{
+    background-image: url(../../../assets/img/ecom.jpg);
+    background-position: center center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    min-height: 91.5vh;
+}

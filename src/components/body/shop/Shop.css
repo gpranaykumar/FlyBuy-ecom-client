@@ -1,0 +1,23 @@
+.gpk-product-scale:hover{
+    transform: scale(1.02);
+}
+.gpk-product-minHeight{
+    min-height :180px;;
+}
+.gpk-btn:hover {
+    background-color: white;
+    color: black;
+}
+.gpk-link{
+    text-decoration: none;
+    color: white;
+}
+.gpk-btn:hover .gpk-link{
+    color: black;
+}
+
+.go_back{
+    background: white;
+    margin: 20px;
+    font-size: 1.2rem;
+}

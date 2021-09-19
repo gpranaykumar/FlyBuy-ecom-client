@@ -1,0 +1,22 @@
+.home{
+    background-image: url(../../../assets/img/home-img.jpg);
+    background-position: center center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    min-height: 91vh;
+
+}
+@media only screen and (max-width: 600px) {
+    .home {
+        background-position: left bottom;
+        min-height: 92vh;
+    }
+  }
+
+  .icon{
+      color: rgb(137, 154, 255);
+      
+  }
+  .icon:hover{
+    color: rgb(69, 87, 252);
+  }

@@ -1,0 +1,10 @@
+@media print { 
+    .header { display: none;}
+    .navbar { display: none;}
+    .printme  { 
+        display: none;
+    }
+    #printInvoice{
+        display: none;
+    }
+}
