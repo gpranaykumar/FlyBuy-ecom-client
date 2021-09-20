@@ -19,11 +19,11 @@ function Shop() {
 
     useEffect(()=>{
         if(item.items.length > 0)
-        setFilteredItems(
-            item.items.filter((item) => {
-                return item.title.toLowerCase().includes(search.toLowerCase())
-            })
-        )
+            setFilteredItems(
+                item.items.filter((item) => {
+                    return item.title.toLowerCase().includes(search.toLowerCase())
+                })
+            )
     },[search])
     const onAddToCart = async (id, productId,quantity) => {
         try {
