@@ -18,6 +18,7 @@ function Shop() {
     
 
     useEffect(()=>{
+        if(item.items.length > 0)
         setFilteredItems(
             item.items.filter((item) => {
                 return item.title.toLowerCase().includes(search.toLowerCase())

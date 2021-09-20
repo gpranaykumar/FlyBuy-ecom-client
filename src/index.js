@@ -12,7 +12,7 @@ axios.defaults.credentials = 'include'
 axios.defaults.headers.post['Content-Type'] ='application/json;charset=utf-8';
 axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
-//https://flybuy-ecom-api.herokuapp.com
+axios.defaults.baseURL = 'https://flybuy-ecom-api.herokuapp.com'
 ReactDOM.render(
   <React.Fragment> 
     <DataProvider>
