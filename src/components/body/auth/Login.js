@@ -24,16 +24,20 @@ function Login() {
     const handleSubmit = async e => {
         e.preventDefault()
         try{
-            const res = await axios.post('/user/login', {email, password})
+            const res = await axios.post('/user/login', {email, password}, {
+                withCredentials: true,
+                credentials: 'include',
+              })
             setUser({...user, err: '', success: res.data.msg})
-
+            console.log(res)
             localStorage.setItem('firstlogin',true)
             dispatch(dispatchLogin())
             history.push("/")
 
         }catch(err){
-            err.response.data.msg &&
-            setUser({...user, err: err.response.data.msg, success: ''})
+            console.log(err.response)
+            //err.response.data.msg &&
+            //setUser({...user, err: err.response.data.msg, success: ''}) 
         }
     }
     return (

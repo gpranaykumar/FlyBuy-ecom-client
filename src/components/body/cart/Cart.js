@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import {Card, CardText, CardBody, CardTitle, CardSubtitle, Spinner, Button} from 'reactstrap';
+import {Card, Spinner, Button} from 'reactstrap';
 import axios from 'axios'
 import { deleteFromCart, getCart, setCartLoading } from '../../../redux/actions/cartActions'
 import { returnErrors } from '../../../redux/actions/errorActions'
-import ACTIONS from '../../../redux/actions'
 import { Link, useHistory} from 'react-router-dom';
 import './Cart.css'
-import Checkout from '../checkout/Checkout';
 
 function Cart() {
     const cart = useSelector(state => state.cart)

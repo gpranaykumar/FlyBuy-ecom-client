@@ -1,10 +1,9 @@
 import React,{useEffect} from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import {Button, Container, Row, Col} from 'reactstrap';
+import {Button,Row} from 'reactstrap';
 import './Shop.css'
-import { addToCart, setCartLoading } from '../../../redux/actions/cartActions';
-import ACTIONS from '../../../redux/actions';
+import { addToCart } from '../../../redux/actions/cartActions';
 import { returnErrors } from '../../../redux/actions/errorActions';
 import axios from 'axios';
 import { getItems, setItemsLoading } from '../../../redux/actions/itemActions';
@@ -35,9 +34,6 @@ function ProductDetail() {
     const productImgStyle =  {
         "max-height":"250px"
     }
-    useEffect(() => {
-        itemsCall()
-    },[!auth.isLogged])
     const itemsCall = () => {
         try{
           console.log("items api request")
@@ -55,6 +51,9 @@ function ProductDetail() {
           }
       }
       }
+    useEffect(() => {
+        itemsCall()
+    },[!(auth.isLogged)])
     const itemDetails=()=>{
         if(item1!==undefined){
             return (

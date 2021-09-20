@@ -6,7 +6,6 @@ import {
     Collapse, 
     Navbar, 
     NavbarToggler, 
-    NavbarBrand, 
     Nav, 
     NavItem, 
     Container, DropdownToggle, DropdownMenu, DropdownItem, UncontrolledDropdown 
@@ -25,14 +24,11 @@ function Header() {
         }
     }
     const [isOpen, setIsOpen] = useState(false)
-    const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const toggle = () => {
         setIsOpen(!isOpen)
     }
-    const transForm = {
-        transform: isLogged? "translateY(-10px)": 0
-    }
+    
     const nameLength = isLogged? (user.name? (user.name).length : 0): 0
     //console.log("nameLenght:" + nameLength +"  name :" + (user.name).slice(0,7))
     const userLink = () => {

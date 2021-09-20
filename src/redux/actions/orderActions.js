@@ -1,5 +1,3 @@
-import axios from 'axios';
-import { returnErrors } from './errorActions';
 import ACTIONS from '.';
 
 export const getOrders = (res) => {

@@ -1,13 +1,11 @@
 import React, {useState, useEffect} from 'react'
-import {Link, useHistory} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import axios from 'axios'
-import {showErrMsg, showSuccessMsg} from '../../utils/notification/Notification'
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteItem, getItems, setItemsLoading } from '../../../redux/actions/itemActions'
+import { deleteItem } from '../../../redux/actions/itemActions'
 import { returnErrors } from '../../../redux/actions/errorActions'
 import {Spinner, Card, CardText, CardBody, CardTitle, CardSubtitle, Button, CardImg, CardGroup, CardColumns, CardDeck} from 'reactstrap'
 import './Shop.css'
-import ACTIONS from '../../../redux/actions'
 import { addToCart } from '../../../redux/actions/cartActions'
 function Shop() {
     const [itemLength, setItemLength] = useState(0)
@@ -55,7 +53,7 @@ function Shop() {
                                 <CardBody>
                                 <Link to={`/shop/item_details/${item._id}`} className="text-dark text-decoration-none" >
                                 <div className="d-flex justify-content-center">
-                                    <img className="w-75" src={item.img} alt="Card image cap" />
+                                    <img className="w-75" src={item.img} alt="Product" />
                                 </div>
                                     <CardTitle tag="h5">{item.title}</CardTitle>
                                     <CardSubtitle tag="h6" >category:{item.category}</CardSubtitle>
