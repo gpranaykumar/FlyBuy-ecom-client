@@ -84,7 +84,11 @@ function App() {
           body: null
         };
         const res = await fetch('/user/infor', requestOptions)
-          .then( (response) => { return response.json()})
+          .then( (response) => { 
+            console.log(Hash.from_xml(response).to_json)
+            console.lgo(response)
+            return response.json()
+          })
           .catch(error => (console.log(error)));
         console.log(res)
         return dispatch(dispatchGetUser(res))
