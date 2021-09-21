@@ -73,13 +73,23 @@ function App() {
 
   useEffect(() => {
     if(token){
-      const getUser = () => {
+      const getUser = async () => {
         dispatch(dispatchLogin())
-        return fetchUser(token).then(res => {
+        const requestOptions = {
+          method: 'GET',
+          headers: { Authorization: token,
+              'Content-Type': 'application/json' },
+          credentials: 'include',
+          body: null
+        };
+        const res = await fetch('/user/infor', requestOptions).then( (response) => { return response.json()})
+    
+        return dispatch(dispatchGetUser(res))
+        /* return fetchUser(token).then(res => {
           //console.log("fetch: ")
           //console.log(res)
           dispatch(dispatchGetUser(res))
-        })
+        }) */
       }
       getUser()
     }
