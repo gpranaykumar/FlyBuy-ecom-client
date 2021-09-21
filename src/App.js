@@ -78,12 +78,15 @@ function App() {
         const requestOptions = {
           method: 'GET',
           headers: { Authorization: token,
-              'Content-Type': 'application/json' },
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',},
           credentials: 'include',
           body: null
         };
-        const res = await fetch('/user/infor', requestOptions).then( (response) => { return response.json()})
-    
+        const res = await fetch('/user/infor', requestOptions)
+          .then( (response) => { return response.json()})
+          .catch(error => (console.log(error)));
+        console.log(res)
         return dispatch(dispatchGetUser(res))
         /* return fetchUser(token).then(res => {
           //console.log("fetch: ")
