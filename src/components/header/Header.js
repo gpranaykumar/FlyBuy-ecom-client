@@ -18,6 +18,7 @@ function Header() {
         try{
             await axios.get('/user/logout')
             localStorage.removeItem('firstlogin')
+            localStorage.removeItem('refreshtoken')
             window.location.href = "/";
         }catch(err){
             window.location.href = "/";

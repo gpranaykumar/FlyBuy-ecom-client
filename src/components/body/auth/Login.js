@@ -27,6 +27,7 @@ function Login() {
             const res = await axios.post('/user/login', {email, password},)
             setUser({...user, err: '', success: res.data.msg})
             console.log(res)
+            localStorage.setItem('refreshtoken',res.data.refreshtoken)
             localStorage.setItem('firstlogin',true)
             dispatch(dispatchLogin())
             history.push("/")

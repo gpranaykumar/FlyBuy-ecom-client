@@ -33,6 +33,7 @@ function App() {
   }
   useEffect(() => {
     const firstLogin = localStorage.getItem('firstlogin')
+    const rf_token = localStorage.getItem('refreshtoken')
     //console.log("app.js")
     
     if(firstLogin){
@@ -41,19 +42,23 @@ function App() {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include',
-          body: null
+          body: {
+            refreshtoken: rf_token
+          }
         };
-        const res = await fetch('/user/refresh_token', requestOptions).then( (response) => { return response.json()})
-        console.log(res)
+        /* const res = await fetch('/user/refresh_token', requestOptions).then( (response) => { return response.json()})
+        console.log(res) */
         //console.log(res.access_token)
-        //const res = await axios.post('/user/refresh_token',null)
+        const res = await axios.post('/user/refresh_token',{refreshtoken: rf_token})
+        console.log("res:" )
+        console.log(res)
           /* , {
           withCredentials: true,
           credentials: 'include',
         } */
         //console.log(res)
         try{
-          dispatch({type: 'GET_TOKEN', payload: res.access_token})
+          dispatch({type: 'GET_TOKEN', payload: res.data.access_token})
         }catch(e){
           console.log(e)
         }
