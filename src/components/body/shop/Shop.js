@@ -4,11 +4,10 @@ import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteItem } from '../../../redux/actions/itemActions'
 import { returnErrors } from '../../../redux/actions/errorActions'
-import {Spinner, Card, CardText, CardBody, CardTitle, CardSubtitle, Button, CardImg, CardGroup, CardColumns, CardDeck} from 'reactstrap'
+import {Spinner, Card, CardText, CardBody, CardTitle, CardSubtitle, Button} from 'reactstrap'
 import './Shop.css'
 import { addToCart } from '../../../redux/actions/cartActions'
 function Shop() {
-    const [itemLength, setItemLength] = useState(0)
     const [filteredItems, setFilteredItems] = useState([])
     const [search, setSearch] = useState('')
     const dispatch = useDispatch()
@@ -24,7 +23,7 @@ function Shop() {
                     return item.title.toLowerCase().includes(search.toLowerCase())
                 })
             )
-    },[search])
+    },[search,item.items])
     const onAddToCart = async (id, productId,quantity) => {
         try {
             const res = await axios.post(`/api/cart/${id}`, {productId, quantity})
@@ -39,6 +38,7 @@ function Shop() {
     const onDeleteItem = async (id) => {
         try {
             const res = await axios.delete(`/api/items/${id}`)
+            
             dispatch(deleteItem(id))
         } catch (err){
             dispatch(returnErrors(err.response.data, err.response.status))

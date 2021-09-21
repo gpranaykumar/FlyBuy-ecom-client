@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { Link, useHistory, useParams} from 'react-router-dom';
+import React, {useState } from 'react'
+import { useSelector} from 'react-redux'
+import {useHistory, useParams} from 'react-router-dom';
 import './Recipt.css'
 import moment from 'moment'
 function Recipt() {
@@ -89,6 +89,11 @@ function Recipt() {
     }
     return (
         <div className="container">
+            <div className="d-flex justify-content-start">
+                <button onClick={() => history.goBack()} className="go_back">
+                    <i className="fas fa-long-arrow-alt-left"></i> Go Back
+                </button>
+            </div>
             <h1 className="text-center">Recipt</h1>
             <div className="row">
                 {OrderFilterFunc()}

@@ -14,9 +14,7 @@ function ProductDetail() {
     const items = useSelector(state => state.item)
     const auth = useSelector(state => state.auth)
     const  item1  = items.items.filter((i) => {
-        if(i._id === id){
-            return i;
-        }
+        return i._id === id? i : null
     })[0];
     const onAddToCart = async (id, productId,quantity) => {
         console.log("AddToCart clicked")
@@ -55,7 +53,7 @@ function ProductDetail() {
         itemsCall()
     },[!(auth.isLogged)])
     const itemDetails=()=>{
-        if(item1!==undefined){
+        if(item1!==undefined && item1!==null){
             return (
                 <Row>   
                     
@@ -84,7 +82,7 @@ function ProductDetail() {
             )
         }else{
             //history.push('/404')
-            <h1>Item Not Found</h1>
+            return <h1 className="text-center">Item Not Found</h1>
         }
     }
     return (

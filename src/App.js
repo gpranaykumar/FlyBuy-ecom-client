@@ -37,13 +37,26 @@ function App() {
     
     if(firstLogin){
       const getToken = async () => {
-        //console.log("get token:")
-        const res = await axios.post('/user/refresh_token', null, {
+        const requestOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
+          body: null
+        };
+        const res = await fetch('/user/refresh_token', requestOptions).then( (response) => { return response.json()})
+        console.log(res)
+        //console.log(res.access_token)
+        //const res = await axios.post('/user/refresh_token',null)
+          /* , {
           withCredentials: true,
           credentials: 'include',
-        })
+        } */
         //console.log(res)
-        dispatch({type: 'GET_TOKEN', payload: res.data.access_token})
+        try{
+          dispatch({type: 'GET_TOKEN', payload: res.access_token})
+        }catch(e){
+          console.log(e)
+        }
       }
       getToken()
     }
@@ -58,6 +71,8 @@ function App() {
       const getUser = () => {
         dispatch(dispatchLogin())
         return fetchUser(token).then(res => {
+          //console.log("fetch: ")
+          //console.log(res)
           dispatch(dispatchGetUser(res))
         })
       }
