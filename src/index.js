@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import DataProvider from './redux/store'
 import axios from 'axios';
 //axios.defaults.baseURL = 'http://localhost:5000' 
-//axios.defaults.baseURL = 'https://flybuy-ecom-api.herokuapp.com'
+axios.defaults.baseURL = 'https://flybuy-ecom-api.herokuapp.com'
 axios.defaults.withCredentials = true 
 axios.defaults.credentials = 'include'
 axios.defaults.headers.post['Content-Type'] ='application/json;charset=utf-8';
