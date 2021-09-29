@@ -81,7 +81,7 @@ function App() {
               'Accept': 'application/json',
               'Content-Type': 'application/json',},
           credentials: 'include',
-          body: null
+          body: {}
         };
         const res = await fetch('/user/infor', requestOptions)
           .then( (response) => {
