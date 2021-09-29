@@ -87,7 +87,7 @@ function App() {
           .then( (response) => {
             console.log("user/infor: ")
             console.log(response)
-            console.log(response.body())
+            console.log(response.body)
             console.log(response.json())
             return response.json()
           })

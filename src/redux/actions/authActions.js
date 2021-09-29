@@ -25,7 +25,7 @@ export const dispatchGetUser =  (res) => {
         } */
         payload: {
             user: res,
-            isAdmin: res.user.role
+            isAdmin: res.user?.role
         }
     }
 }
