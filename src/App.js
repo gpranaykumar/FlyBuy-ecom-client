@@ -85,7 +85,9 @@ function App() {
         };
         const res = await fetch('/user/infor', requestOptions)
           .then( (response) => {
+            console.log("user/infor: ")
             console.log(response)
+            console.log(response.json())
             return response.json()
           })
           .catch(error => (console.log(error)));
