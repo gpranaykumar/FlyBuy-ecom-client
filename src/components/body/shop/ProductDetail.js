@@ -30,7 +30,7 @@ function ProductDetail() {
 
     }
     const productImgStyle =  {
-        "max-height":"250px"
+        "maxHeight":"250px"
     }
     const itemsCall = () => {
         try{

@@ -48,7 +48,7 @@ function Login() {
                         <div className="col-12 col-md-6 text-black px-5 pt-5">
                             <div >
                             
-                        <form onSubmit={handleSubmit} style={{"max-width": "23rem"}}>
+                        <form onSubmit={handleSubmit} style={{"maxWidth": "23rem"}}>
                         <h3 className="fw-normal mb-5">Login</h3>
                         {err && showErrMsg(err)}
                         {success && showSuccessMsg(success)}

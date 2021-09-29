@@ -90,6 +90,7 @@ function App() {
           })
           .catch(error => (console.log(error)));
         console.log(res)
+        //console.log(res.user.role)
         return dispatch(dispatchGetUser(res))
         /* return fetchUser(token).then(res => {
           //console.log("fetch: ")

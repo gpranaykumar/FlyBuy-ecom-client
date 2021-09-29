@@ -21,6 +21,8 @@ function Profile() {
     const users = useSelector(state => state.users)
 
     const {user, isAdmin} = auth
+    //console.log(user.user.email)
+    console.log("isAdmin :"+isAdmin)
     const [data, setData] = useState(initialState)
     const {name, password, cf_password, err, success} = data
 
@@ -145,7 +147,7 @@ function Profile() {
                 <h2 className="text-center">{isAdmin ? "Admin Profile": "User Profile"}</h2>
 
                 <div className="avatar mb-2">
-                    <img src={avatar ? avatar : user.avatar} alt="" style={avatarStyle} />
+                    <img src={avatar ? avatar : user?.user?.avatar} alt="" style={avatarStyle} />
                     <span>
                         <p>Profile Image Change <i className="fas fa-camera"></i></p>
                         <input type="file" name="file" id="file_up" onChange={changeAvatar} className="form-control form-control-lg" />
@@ -154,13 +156,13 @@ function Profile() {
 
                 <div className="form-group mb-2">
                     <label className="form-label" htmlFor="name">Name</label>
-                    <input type="text" name="name" id="name" defaultValue={user.name}
+                    <input type="text" name="name" id="name" defaultValue={user?.user?.name}
                     placeholder="Your name" onChange={handleChange} className="form-control form-control-lg"/>
                 </div>
 
                 <div className="form-group mb-2">
                     <label className="form-label" htmlFor="email">Email</label>
-                    <input type="email" name="email" id="email" defaultValue={user.email}
+                    <input type="email" name="email" id="email" defaultValue={user?.user?.email}
                     placeholder="Your email address" disabled className="form-control form-control-lg" />
                 </div>
 
