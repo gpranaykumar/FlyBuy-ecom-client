@@ -80,8 +80,7 @@ function App() {
           headers: { Authorization: token,
               'Accept': 'application/json',
               'Content-Type': 'application/json',},
-          credentials: 'include',
-          body: {}
+          credentials: 'include'
         };
         const res = await fetch('/user/infor', requestOptions)
           .then( (response) => {
