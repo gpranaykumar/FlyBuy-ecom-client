@@ -1,5 +1,6 @@
 .home{
-    background-image: url(../../../assets/img/home-img.jpg);
+    /* background-image: url(../../../assets/img/home-img.jpg); */
+    background-image: url(https://res.cloudinary.com/pranaykumar/image/upload/v1633461827/flybuy/home-img_cq2cdb.jpg);
     background-position: center center;
     background-size:cover;
     background-repeat: no-repeat;

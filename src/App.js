@@ -50,8 +50,8 @@ function App() {
         console.log(res) */
         //console.log(res.access_token)
         const res = await axios.post('/user/refresh_token',{refreshtoken: rf_token})
-        console.log("res:" )
-        console.log(res)
+        //console.log("res:" )
+        //console.log(res)
           /* , {
           withCredentials: true,
           credentials: 'include',
@@ -75,7 +75,7 @@ function App() {
     if(token){
       const getUser = async () => {
         dispatch(dispatchLogin())
-        const requestOptions = {
+        /* const requestOptions = {
           method: 'GET',
           headers: { Authorization: token,
               'Accept': 'application/json',
@@ -85,15 +85,16 @@ function App() {
         const res = await fetch('/user/infor', requestOptions)
           .then( (response) => {
             console.log("user/infor: ")
-            console.log(response)
-            console.log(response.body)
+            console.log(response) 
+            console.log(response.data)
             console.log(response.json())
-            return response.json()
+            return response
           })
-          .catch(error => (console.log(error)));
-        console.log(res)
+          .catch(error => (console.log(error))); */
+          const res = await axios.get('/user/infor',{ 'headers': { 'Authorization': token}, 'credentials': 'include' })
+        //console.log("data:",res.data)
         //console.log(res.user.role)
-        return dispatch(dispatchGetUser(res))
+        return dispatch(dispatchGetUser(res.data))
         /* return fetchUser(token).then(res => {
           //console.log("fetch: ")
           //console.log(res)

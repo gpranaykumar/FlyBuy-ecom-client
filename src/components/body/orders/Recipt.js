@@ -95,7 +95,7 @@ function Recipt() {
                 </button>
             </div>
             <h1 className="text-center">Recipt</h1>
-            <div className="row">
+            <div className="row" style={{marginBottom: '15px'}}>
                 {OrderFilterFunc()}
                 {displayRecipt()}
             </div>

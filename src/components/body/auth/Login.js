@@ -26,16 +26,17 @@ function Login() {
         try{
             const res = await axios.post('/user/login', {email, password},)
             setUser({...user, err: '', success: res.data.msg})
-            console.log(res)
+            //console.log(res)
             localStorage.setItem('refreshtoken',res.data.refreshtoken)
             localStorage.setItem('firstlogin',true)
             dispatch(dispatchLogin())
             history.push("/")
 
         }catch(err){
-            console.log(err.response)
-            //err.response.data.msg &&
-            //setUser({...user, err: err.response.data.msg, success: ''}) 
+            /* console.log("err")
+            console.log(err.response) */
+            err.response.data.msg &&
+            setUser({...user, err: err.response.data.msg, success: ''}) 
         }
     }
     return (

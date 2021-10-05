@@ -29,7 +29,7 @@ function Header() {
     const toggle = () => {
         setIsOpen(!isOpen)
     }
-    const nameLength = isLogged? (user?.user?.name ? (user.user.name).length : 0): 0
+    const nameLength = isLogged? (user?.name ? (user.name).length : 0): 0
     //console.log("nameLenght:" + nameLength +"  name :" + (user.name).slice(0,7))
     const userLink = () => {
         return (
@@ -44,7 +44,7 @@ function Header() {
                 <DropdownToggle tag='div'>
                     <NavItem>
                         <Link to="#" className="nav-link avatar">
-                        <img src={user?.user?.avatar} alt=""/> { nameLength > 7 ?  (user?.user?.name).slice(0,7) :user?.user?.name } <i className="fas fa-angle-down"></i>
+                        <img src={user?.avatar} alt=""/> { nameLength > 7 ?  (user?.name).slice(0,7) :user?.name } <i className="fas fa-angle-down"></i>
                         </Link>
                     </NavItem>
                 </DropdownToggle>

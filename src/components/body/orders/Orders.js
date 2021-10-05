@@ -34,7 +34,7 @@ function Orders() {
         }
 
         if(!orderLoaded){
-            if( auth.user._id!==undefined && order.orders.length === 0 ){
+            if( /* auth.user._id!==undefined &&  */ order.orders === null || order.orders.length === 0 ){
                 dispatch(setOrdersLoading())
                 getOrderCall()
               }

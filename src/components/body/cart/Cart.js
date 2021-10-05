@@ -19,6 +19,7 @@ function Cart() {
             try {
                 const id = auth.user._id
                 const res = await axios.get(`/api/cart/${id}`)
+                //console.log("cart: ",res)
                 dispatch(getCart(res))
                 if(id!== undefined){
                     setCartLoaded(false)
@@ -27,14 +28,16 @@ function Cart() {
                 }
             } catch (err) {
                 try{
-                    dispatch(returnErrors(err.response.data, err.response.status))
+                    console.log("cart error: ");
+                    console.log(err, err)
+                    dispatch(returnErrors(err.data, err.status))
                 }catch(e){
                     console.log("Cart-page-getCartCall-err: "+e);
                 }
             }
         }
-        if(!cartLoaded){
-            if( auth.user._id!==undefined && cart.cart === null ){
+        if(!cartLoaded ){
+            if( auth.user !== undefined &&  cart.cart === null ){
                 dispatch(setCartLoading())
                 getCartCall()
               }
@@ -43,8 +46,7 @@ function Cart() {
     }
     useEffect(() => {
         cartFunc()
-    },[auth.isLogged, cartLoaded])
-
+    },[auth.isLogged, cartLoaded]) 
     const cartImg = {
         "width" : "125px",
         "borderRadius": "100%"

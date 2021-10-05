@@ -17,6 +17,8 @@ export const fetchUser = async (token) => {
 }
 
 export const dispatchGetUser =  (res) => {
+    /* console.log("dispatch user: ",res)
+    console.log("dispatch user: ",res.user) */
     return {
         type: ACTIONS.GET_USER,
         /* payload: {
@@ -24,7 +26,7 @@ export const dispatchGetUser =  (res) => {
             isAdmin: res.data.role
         } */
         payload: {
-            user: res,
+            user: res.user,
             isAdmin: res?.user?.role
         }
     }
